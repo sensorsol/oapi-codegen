@@ -236,16 +236,13 @@ type OperationDefinition struct {
 // Params returns the list of all parameters except Path parameters. Path parameters
 // are handled differently from the rest, since they're mandatory.
 func (o *OperationDefinition) Params() []ParameterDefinition {
-	result := append(o.QueryParams, o.HeaderParams...)
-	result = append(result, o.CookieParams...)
+	result := append(o.QueryParams, o.CookieParams...)
 	return result
 }
 
 // AllParams returns all parameters
 func (o *OperationDefinition) AllParams() []ParameterDefinition {
-	result := append(o.QueryParams, o.HeaderParams...)
-	result = append(result, o.CookieParams...)
-	result = append(result, o.PathParams...)
+	result := append(o.QueryParams, o.PathParams...)
 	return result
 }
 
