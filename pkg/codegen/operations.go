@@ -253,7 +253,7 @@ func (o *OperationDefinition) AllParams() []ParameterDefinition {
 // object. Returns true if we have any of those. This is used from the template
 // engine.
 func (o *OperationDefinition) RequiresParamObject() bool {
-	return len(o.Params()) > 0
+	return len(o.QueryParams) > 0
 }
 
 // HasBody is called by the template engine to determine whether to generate body
