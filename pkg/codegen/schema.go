@@ -741,6 +741,10 @@ func GenFieldsFromProperties(props []Property) []string {
 			if p.NeedsFormTag {
 				fieldTags["form"] = p.JsonFieldName
 			}
+			// Add binding tag for required fields
+			if p.Required {
+				fieldTags["binding"] = "required"
+			}
 		} else {
 			fieldTags["json"] = p.JsonFieldName + ",omitempty"
 			if globalState.options.OutputOptions.EnableYamlTags {
