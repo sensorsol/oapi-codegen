@@ -765,6 +765,10 @@ func GenFieldsFromProperties(props []Property) []string {
 		if p.NeedsFormTag {
 			fieldTags["form"] = p.JsonFieldName + stringOrEmpty(omitEmpty, ",omitempty")
 		}
+		// Add binding tag for required fields
+		if p.Required {
+			fieldTags["binding"] = "required"
+		}
 
 		// Support x-go-json-ignore
 		if extension, ok := p.Extensions[extPropGoJsonIgnore]; ok {
